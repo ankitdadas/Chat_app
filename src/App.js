@@ -1,10 +1,12 @@
 import "./App.scss";
 import Master from "./component/HOC/Master";
-
+import { BrowserRouter as Router } from "react-router-dom";
 function App() {
   return (
     <div className="app-container">
-      <Master></Master>
+      <Router>
+        <Master></Master>
+      </Router>
     </div>
   );
 }

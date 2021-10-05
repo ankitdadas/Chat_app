@@ -11,18 +11,23 @@ export default function Searchbox({ setUsers }) {
       freeSolo
       filterOptions={(x) => x}
       options={serachBoxArr.map(
-        (option) => `${option.firstName} ${option.lastName}`
+        (option) => `${option.firstName} ${option.lastName} ${option.mobileNumber}`
       )}
       onChange={(event, newValue) => {
+        console.log(event);
         setUsers(newValue);
       }}
       onInputChange={(e) => {
         if (e.target.value) {
           const result = top100Users.filter(
             (t) =>
-              t.firstName.startsWith(e.target.value) ||
-              t.lastName.startsWith(e.target.value)
+              t.firstName
+                .toLowerCase()
+                .startsWith(e.target.value.toLowerCase()) ||
+              t.lastName.toLowerCase().startsWith(e.target.value.toLowerCase()) ||
+              t.mobileNumber.startsWith(e.target.value)
           );
+         
           setSearchBoxArr(result);
         } else {
           setSearchBoxArr([]);
@@ -35,5 +40,9 @@ export default function Searchbox({ setUsers }) {
 
 // Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
 const top100Users = ConversationData.data.map((p) => {
-  return { firstName: p.contact.firstName, lastName: p.contact.lastName };
+  return {
+    firstName: p.contact.firstName,
+    lastName: p.contact.lastName,
+    mobileNumber: p.contact.mobile?.number || '',
+  };
 });

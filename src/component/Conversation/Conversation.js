@@ -38,8 +38,7 @@ const styles = {
     position: "relative",
     lineHeight: "1em",
     height: "2.5em",
-    // width: "180px",
-    // paddingLeft: 10,
+    width: "180px",
     display: "-webkit-box",
     boxOrient: "vertical",
     lineClamp: 2,
@@ -47,21 +46,20 @@ const styles = {
   },
   root: {
     MuiAvatar: {
-      height: 25
-    }
-  }
-}
+      height: 25,
+    },
+  },
+};
 
 const styleAvatar = makeStyles((theme) => ({
-    avatar: {
+  avatar: {
     backgroundColor: theme.palette.grey[50],
     border: `1px solid ${theme.palette.info.main}`,
     color: theme.palette.info.main,
     bottom: 10,
     left: 20,
-    height: "25 !important"
+    height: "25 !important",
   },
-  
 }));
 
 class Conversation extends Component {
@@ -84,19 +82,23 @@ class Conversation extends Component {
   getStatusIcon = (type) => {
     switch (type) {
       case "whatsApp":
-        return <WhatsAppIcon className="whatsApp"></WhatsAppIcon>;
+        return <WhatsAppIcon></WhatsAppIcon>;
       case "sms":
-        return <SmsOutlinedIcon className="whatsApp"></SmsOutlinedIcon>;
+        return <SmsOutlinedIcon></SmsOutlinedIcon>;
       default:
         return <></>;
     }
   };
   setUsers = (user) => {
     if (user) {
-  
+      console.log(user);
       this.setState({
         ConversationData: this.state.ConversationData.filter((p) =>
-          user.includes(p.contact.firstName)
+          user.includes(
+            p.contact.firstName === ""
+              ? p.contact.mobile.number
+              : p.contact.firstName
+          )
         ),
       });
     } else {
@@ -105,50 +107,52 @@ class Conversation extends Component {
       });
     }
   };
+  getNameOrMobileNumber = ({ contact, mobile }) => {
+    if (contact.firstName !== "" && contact.lastName !== "") {
+      return `${contact.firstName} ${contact.lastName}`;
+    } else {
+      return contact.mobile.number;
+    }
+  };
   render() {
     const { classes } = this.props;
     return (
-      <Grid className="blue-bg block-spacing" lg="auto" md="auto">
-          <Grid className="compose-block">
-            <Box className="compose-button">
-              <ComposeIcon />
-              <Typography className="compose-text">Compose</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} container className="search-box">
-            <Grid
-              item
-              xs={10}
-              component="form"
-              container
-              className="search-icon"
-            >
-              <Grid xs={2}>
-                <IconButton type="submit" aria-label="search">
-                  <SearchIcon />
-                </IconButton>
-              </Grid>
-              <Grid xs={10}>
-                <Searchbox setUsers={this.setUsers}></Searchbox>
-              </Grid>
+      <Grid className="blue-bg block-spacing">
+        <Grid className="compose-block">
+          <Box className="compose-button">
+            <ComposeIcon />
+            <Typography className="compose-text">Compose</Typography>
+          </Box>
+        </Grid>
+        <Grid item xs={12} container className="search-box">
+          <Grid item xs={10} component="form" container className="search-icon">
+            <Grid xs={2}>
+              <IconButton type="submit" aria-label="search">
+                <SearchIcon />
+              </IconButton>
             </Grid>
-            <Grid xs={1} className="filterIcon">
-              <CustomizedTooltip title="Filter" placement="left">
-                <FilterListOutlinedIcon></FilterListOutlinedIcon>
-              </CustomizedTooltip>
+            <Grid xs={10}>
+              <Searchbox setUsers={this.setUsers}></Searchbox>
             </Grid>
           </Grid>
-          <Grid className="height-conversation scroll">
-          <InfiniteScroll className="scroll"
+          <Grid xs={1} className="filterIcon">
+            <CustomizedTooltip title="Filter" placement="left">
+              <FilterListOutlinedIcon></FilterListOutlinedIcon>
+            </CustomizedTooltip>
+          </Grid>
+        </Grid>
+        <Grid className="height-conversation scroll">
+          <InfiniteScroll
+            className="scroll"
             dataLength={this.state.ConversationData.length}
             next={this.fetchMoreData}
             hasMore={true}
             /*  loader={<h4>Loading...</h4>}
-          endMessage={
-            <p style={{ textAlign: "center" }}>
-              <b>Yay! You have seen it all</b>
-            </p>
-          } */
+        endMessage={
+          <p style={{ textAlign: "center" }}>
+            <b>Yay! You have seen it all</b>
+          </p>
+        } */
           >
             {this.state.ConversationData.map((c, indx) => {
               return (
@@ -167,11 +171,16 @@ class Conversation extends Component {
                           alt="Remy Sharp"
                           src="https://material-ui.com/static/images/avatar/1.jpg"
                         /> */}
-                        <Avatar class="avatar"> <Grid className="letter">R</Grid>
+                        <Avatar class="avatar">
+                          {" "}
+                          <Grid className="letter">R</Grid>
                           {/* <Grid className="dot-w"> 
                             <WhatsAppIcon className="whatsApp"></WhatsAppIcon>
                             </Grid> */}
-                            <Avatar className="avatar-icon" >  <WhatsAppIcon></WhatsAppIcon></Avatar>
+                          <Avatar className="avatar-icon">
+                            {" "}
+                            {this.getStatusIcon(c.type)}
+                          </Avatar>
                         </Avatar>
                         {/* <Grid class="avatar">
                           <Grid className="letter">R</Grid>
@@ -184,7 +193,7 @@ class Conversation extends Component {
                     <Grid item xs={6} md={9}>
                       <ListItem button key="RemySharp">
                         <ListItemText
-                          primary={`${c.contact.firstName} ${c.contact.lastName}`}
+                          primary={`${this.getNameOrMobileNumber(c)}`}
                           class="user-name"
                         ></ListItemText>
                         <ListItemText align="right" className="message">
@@ -205,7 +214,7 @@ class Conversation extends Component {
               );
             })}
           </InfiniteScroll>
-          </Grid>
+        </Grid>
       </Grid>
     );
   }
