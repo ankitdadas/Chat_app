@@ -31,6 +31,7 @@ import ConversationData from "./Conversion.json";
 import Moment from "react-moment";
 import { withStyles } from "@material-ui/styles";
 import Searchbox from "./../Common/Searchbox/Index";
+import { Button, ListItemAvatar, SmallAvatar, Badge } from "@material-ui/core";
 
 const styles = {
   ListItemText: {
@@ -53,7 +54,7 @@ const styles = {
 }
 
 const styleAvatar = makeStyles((theme) => ({
-    avatar: {
+  avatar: {
     backgroundColor: theme.palette.grey[50],
     border: `1px solid ${theme.palette.info.main}`,
     color: theme.palette.info.main,
@@ -61,7 +62,7 @@ const styleAvatar = makeStyles((theme) => ({
     left: 20,
     height: "25 !important"
   },
-  
+
 }));
 
 class Conversation extends Component {
@@ -93,7 +94,7 @@ class Conversation extends Component {
   };
   setUsers = (user) => {
     if (user) {
-  
+
       this.setState({
         ConversationData: this.state.ConversationData.filter((p) =>
           user.includes(p.contact.firstName)
@@ -108,104 +109,87 @@ class Conversation extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Grid className="blue-bg block-spacing" lg="auto" md="auto">
-          <Grid className="compose-block">
-            <Box className="compose-button">
-              <ComposeIcon />
-              <Typography className="compose-text">Compose</Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} container className="search-box">
-            <Grid
-              item
-              xs={10}
-              component="form"
-              container
-              className="search-icon"
-            >
-              <Grid xs={2}>
-                <IconButton type="submit" aria-label="search">
-                  <SearchIcon />
-                </IconButton>
-              </Grid>
-              <Grid xs={10}>
-                <Searchbox setUsers={this.setUsers}></Searchbox>
-              </Grid>
-            </Grid>
-            <Grid xs={1} className="filterIcon">
+      <Grid className="blue-bg block-spacing" lg="auto" md="auto" >
+
+
+        <Grid item className="compose-block" xs={12}>
+          <Button className="compose-button" variant="contained" size="large" color="primary">
+            <ComposeIcon />
+            <Typography className="compose-text">Compose</Typography>
+          </Button>
+        </Grid>
+
+        <Grid item xs={12}>
+          <Paper elevation={0}
+            component="form" style={{ display: "flex", justifyContent: "flex-end", marginBottom: 10, marginTop: 10 }}
+            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
+          >
+            <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
+              <SearchIcon />
+            </IconButton>
+            <Searchbox sx={{ ml: 1, flex: 1 }} setUsers={this.setUsers}></Searchbox>
+            <IconButton color="primary" sx={{ p: '10px' }} aria-label="directions">
               <CustomizedTooltip title="Filter" placement="left">
-                <FilterListOutlinedIcon></FilterListOutlinedIcon>
+                <FilterListOutlinedIcon />
               </CustomizedTooltip>
-            </Grid>
-          </Grid>
-          <Grid className="height-conversation scroll">
+            </IconButton>
+          </Paper>
+        </Grid>
+        <Grid className="height-conversation scroll">
           <InfiniteScroll className="scroll"
             dataLength={this.state.ConversationData.length}
             next={this.fetchMoreData}
             hasMore={true}
-            /*  loader={<h4>Loading...</h4>}
-          endMessage={
-            <p style={{ textAlign: "center" }}>
-              <b>Yay! You have seen it all</b>
-            </p>
-          } */
+          /*  loader={<h4>Loading...</h4>}
+        endMessage={
+          <p style={{ textAlign: "center" }}>
+            <b>Yay! You have seen it all</b>
+          </p>
+        } */
           >
             {this.state.ConversationData.map((c, indx) => {
               return (
                 <List
-                  className={`message-block spacing ${
-                    indx % 2 === 0 ? " white-bg" : "blue-bg"
-                  }`}
+                  className={`message-block active ${indx % 2 === 0 ? " white-bg" : "blue-bg"
+                    }`}
                 >
-                  {c.unread && c.unread.length > 0 && (
-                    <Grid className="dot"></Grid>
-                  )}
-                  <Grid container>
-                    <Grid item xs={2} md={3}>
-                      <ListItemIcon>
-                        {/* <Avatar
-                          alt="Remy Sharp"
-                          src="https://material-ui.com/static/images/avatar/1.jpg"
-                        /> */}
-                        <Avatar class="avatar"> <Grid className="letter">R</Grid>
-                          {/* <Grid className="dot-w"> 
-                            <WhatsAppIcon className="whatsApp"></WhatsAppIcon>
-                            </Grid> */}
-                            <Avatar className="avatar-icon" >  <WhatsAppIcon></WhatsAppIcon></Avatar>
-                        </Avatar>
-                        {/* <Grid class="avatar">
-                          <Grid className="letter">R</Grid>
-                          <Grid className="dot-w">
-                            {this.getStatusIcon(c.type)}
-                          </Grid>{" "}
-                        </Grid> */}
-                      </ListItemIcon>
-                    </Grid>
-                    <Grid item xs={6} md={9}>
-                      <ListItem button key="RemySharp">
-                        <ListItemText
-                          primary={`${c.contact.firstName} ${c.contact.lastName}`}
-                          class="user-name"
-                        ></ListItemText>
-                        <ListItemText align="right" className="message">
-                          <Moment format="hh:mm A" withTitle>
-                            {c.created.at}
-                          </Moment>
-                        </ListItemText>
-                      </ListItem>
-                      <ListItemText
-                        className={`message ${classes.ListItemText}`}
-                        //className={classes.Typography
+                  <ListItemAvatar>
+                    <ListItemIcon>
+                      <Badge overlap="circular" anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                        badgeContent={<WhatsAppIcon style={{ backgroundColor: "#3965FF", color: "#fff", borderRadius: "25px", fontSize: 14 }}></WhatsAppIcon>}
                       >
-                        {c.lastMessage.message}
-                      </ListItemText>
+                        <Avatar style={{ width: "40px" }} alt="Travis Howard" src="/static/images/avatar/2.jpg" />
+                      </Badge>
+                    </ListItemIcon>
+                  </ListItemAvatar>
+                  <ListItemText class="user-name">
+                    <Grid container>
+                      <Grid item xs={12}>
+                        <Box style={{ display: "flex", justifyContent: "flex-end" }}>
+                          {c.unread && c.unread.length > 0 && (<span className="dot"></span>)}
+                        </Box>
+                        <Box style={{ display: "flex", justifyContent: "space-between" }}>
+                          <div style={{ fontSize: 14, fontWeight: "400" }}> {c.contact.firstName} {c.contact.lastName}</div>
+                          <div>
+
+                            <Moment style={{ fontSize: 14, fontWeight: "400" }} format="hh:mm A" withTitle>{c.created.at}</Moment>
+                          </div>
+                        </Box>
+
+                        <Box className="textMessage" component="div" style={{ width: "280px", whiteSpace: 'nowrap', margin: "0px auto", fontSize: "12px" }} sx={{
+                          textOverflow: 'ellipsis', my: 2,
+                          overflow: 'hidden',
+                        }}>
+                          {c.lastMessage.message}
+                        </Box>
+                      </Grid>
                     </Grid>
-                  </Grid>
+                  </ListItemText>
                 </List>
               );
             })}
           </InfiniteScroll>
-          </Grid>
+        </Grid>
       </Grid>
     );
   }

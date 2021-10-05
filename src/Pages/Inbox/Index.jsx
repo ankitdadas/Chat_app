@@ -7,7 +7,7 @@ import Grid from "@material-ui/core/Grid";
 const Index = () => {
   return (
     <>
-   <Conversation />
+      <Conversation />
       <Chat />
       <User />
     </>

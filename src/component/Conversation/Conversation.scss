@@ -4,6 +4,7 @@
   .block-spacing {
     width: 20%;
     height: auto;
+    padding: 10px 0px 0px 11px;
   }
   
   .white-bg {
@@ -11,36 +12,43 @@
   }
   
   .compose-block {
-    height: 70px;
+     //padding: 10px 10px 10px;
     position: relative;
+    text-align: right;
  }
 
-  .compose-button {
-    height: 30px;
-    background-color: #31AAB7;
-    float: right;
-    width: 100px;;
-    position: absolute;
-    bottom: 0px;
-    right: 0px;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-
+  .compose-button {    
+    background-color: #31AAB7;   
+    width: 100px;
   }
 
   .message-block {
     border-radius: 10px;
-    margin: 9px !important;
-    padding-left: 10px !important;
-    padding-right: 8px !important;
+    padding:10px 16px !important;
+    margin-bottom: 20px !important;
+    display: flex;
+    position: relative;
+    &:before{
+      position: absolute;
+      top: 50%;
+      left: 0px;
+      content: " ";
+      height: 20px;
+      width: 3px;
+      background-color: #fff;
+      margin-top: -10px;
+    }
+    }
 
-  }
+    .message-block.active{
+      &:before{
+        background-color: #0078CE;
+      }
+    }
 
-  .spacing {
-    margin-top: 20px !important;
-  }
+     
 
+  
   .message-block {
     .MuiListItem-gutters {
       padding: 0px 5px 0px 0px;
@@ -97,19 +105,7 @@
      
   }
   
-  .user-name {
-    .MuiTypography-body1 {
-    font-family: Work Sans;
-font-size: 14px;
-font-style: normal;
-font-weight: 600;
-line-height: 16px;
-letter-spacing: 0px;
-text-align: left;
-// padding-left: 10px;
-
-    }
-  }
+  
 
 .compose-text {
   //styleName: Buttons & Labels / Small;
@@ -161,14 +157,6 @@ padding-left: 5px;
 
 .avatar {
   height: 40px;
-  width: 40px;
-  background-color: #d2d6da;
-  border-radius: 50%;
-  display: inline-block;
-  right: 0px;
-  position: relative;
-    float: right;
-    margin-right: 10px;
 }
 
 .whatsApp {
@@ -185,7 +173,8 @@ border-radius: 0px;
 }
 
 .height-conversation > div{
-  height: 500px;
+  height: calc(100vh - 208px);
+    overflow: auto;
 }
 
 .dot-w {
@@ -208,8 +197,8 @@ border-radius: 0px;
 }
 
 .scroll {
-  overflow-x: hidden !important;
-  height: inherit !important;
+  
+  
 }
 
 .avatar-icon {
