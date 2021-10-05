@@ -22,17 +22,35 @@ border-radius: 0px;
 }
 
 .app-container {
-  padding: 5px;
+ // padding: 5px;
   // .MuiGrid-item {
   //   margin: 10px;
   // }
 }
 
 .logoicon {
-  height: 53px;
-width: 48px;
-left: 20px;
-top: 18px;
-border-radius: 0px;
 
+ // height: 53px;
+// width: 48px;
+// left: 20px;
+// top: 18px;
+//border-radius: 0px;
+
+}
+
+/* css new code */
+
+.appBarHeader{
+  background: #fff;
+  h6{
+    a{
+      color: #324552;
+      // font-family: ;
+       font-size: 28px;
+       text-decoration: none;
+       margin-left: 15px;
+    }
+   
+
+  }
 }

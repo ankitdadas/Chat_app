@@ -14,40 +14,40 @@ import { NavLink } from "react-router-dom";
 function LeftSidePanel() {
   return (
     <Grid item xs={1} className="panel-container" direction="row" container>
-      <Grid lg={9} md={7} direction="column">
-        <Grid lg={1}>
+      <Grid lg={12} md={12} >
+        <Grid lg={12}>
           <NavLink to={"/"} exact activeClassName="selected">
             <InboxIcon />
           </NavLink>
         </Grid>
-        <Grid lg={1}>
+        <Grid lg={12}>
           <NavLink to={"/Campaigns"} exact activeClassName="selected">
             <Podcast />
           </NavLink>
         </Grid>
-        <Grid lg={1}>
+        <Grid lg={12}>
           <NavLink to={"/Templates"} exact activeClassName="selected">
             <TextIcon />
           </NavLink>
         </Grid>
-        <Grid lg={1}>
+        <Grid lg={12}>
           <NavLink to={"/Contacts"} exact activeClassName="selected">
             <GroupIcon />
           </NavLink>
         </Grid>
-        <Grid lg={1}>
+        <Grid lg={12}>
           <NavLink to={"/Tools"} exact activeClassName="selected">
             <PanelIcon />
           </NavLink>
         </Grid>
 
-        <Grid lg={1}>
+        <Grid lg={12}>
           <NavLink to={"/Featurerequests"} exact activeClassName="selected">
             <ConstructionIcon />
           </NavLink>
         </Grid>
       </Grid>
-      <Grid direction="column" lg={3}>
+      <Grid lg={12}>
         <CustomizedTooltip title="Status">
           <SentimentSatisfiedOutlinedIcon className="panel-icon smile-icon"></SentimentSatisfiedOutlinedIcon>
         </CustomizedTooltip>

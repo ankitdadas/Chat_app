@@ -5,17 +5,21 @@
 }
 
 .panel-container {
-    flex-direction: column;
+  //  flex-direction: column;
     position: relative;
     padding-top: 10px;
-    padding-bottom: 10px;
+    //padding-bottom: 10px;
     svg {
-        margin: 5px;
+        margin: 5px auto;
         height: 33px;
         width: 34px;
         left: 24px;
         top: 253px;
         border-radius: 0px;
+        }
+
+        div{
+            text-align: center;
         }
 
 }

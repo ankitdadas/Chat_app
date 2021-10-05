@@ -10,38 +10,48 @@ import BellIcon from "./../Common/BellIcon/BellIcon";
 import CustomizedTooltip from "./../Common/ToolTip/CustomizedTooltip";
 import Routing from "./../../Routing";
 import { Link } from "react-router-dom";
+import { AppBar, IconButton, Toolbar, Box } from "@material-ui/core";
 const Master = () => {
   return (
-    <Router>
-      <Grid item className="inbox-block " xs={12} md={12} container>
-        <Grid xs={1}>
-          <LogoIcon className="logoicon"></LogoIcon>
-        </Grid>
-        <Grid xs={10} sm={10}>
-          <Typography variant="h5" className="header-message">
-            <Link to="/"></Link>
-          </Typography>
-        </Grid>
-        <Grid xs={1}>
-          <CustomizedTooltip title="Support center" placement="bottom">
-            <HelpOutlineIcon></HelpOutlineIcon>
-          </CustomizedTooltip>
-        </Grid>
+    <>
+      <Router>
+        <Grid className="appBarHeader" container>
+          <Grid item xs={12}>
+            <AppBar position="sticky" color="transparent" elevation={0} >
+              <Toolbar>
 
-        <Grid xs={1}>
-          <BellIcon />
+                <LogoIcon sx={{ mr: 2 }} className="logoicon"></LogoIcon>
+
+                <Typography variant="h6"  sx={{ flexGrow: 1 }}>
+                  <Link to="/">Inbox</Link>
+                </Typography>
+                <Box sx={{ flexGrow: 1 }} />
+
+
+                <IconButton size="large" color="inherit">
+                  <CustomizedTooltip title="Support center" placement="bottom">
+                    <HelpOutlineIcon></HelpOutlineIcon>
+                  </CustomizedTooltip>
+                </IconButton>
+                <IconButton size="large" color="inherit">
+                  <BellIcon />
+                </IconButton>
+                <IconButton size="large" color="inherit">
+                  <CustomizedTooltip title="Settings" placement="bottom">
+                    <SettingsOutlinedIcon></SettingsOutlinedIcon>
+                  </CustomizedTooltip>
+                </IconButton>
+              </Toolbar>
+            </AppBar>
+          </Grid>
         </Grid>
-        <Grid xs={1}>
-          <CustomizedTooltip title="Settings" placement="bottom">
-            <SettingsOutlinedIcon></SettingsOutlinedIcon>
-          </CustomizedTooltip>
+        
+        <Grid container className="chatSection">
+          <Routing></Routing>
         </Grid>
-      </Grid>
-      <Divider />
-      <Grid container className="chatSection">
-        <Routing></Routing>
-      </Grid>
       </Router>
+
+      </>
   );
 };
 

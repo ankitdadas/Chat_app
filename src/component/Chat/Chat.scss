@@ -31,9 +31,11 @@
 }
 
 .message-box {
+    background-color: #fff;
+    position: absolute;
     bottom: 0px;
-    align-items: center;
-    padding: 10px;
+    //align-items: center;
+    //padding: 10px;
     .MuiInput-underline:before{
         border-bottom: none;
     }
@@ -153,13 +155,13 @@ text-align: center;
 .scroll-flow {
     overflow-y: scroll;
     @media screen and (min-width: 1024px) and  (max-width: 1300px) {
-        height: 400px;
+     //   height: 400px;
     }
     @media screen and (min-width: 1300px) and (max-width: 1440px) {
-        height: 500px;
+    //    height: 500px;
     }
     @media screen and (min-width: 1440px) {
-        height: 465px;
+    //    height: 465px;
     }
     
 }
