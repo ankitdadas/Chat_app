@@ -31,9 +31,11 @@
 }
 
 .message-box {
+    background-color: #fff;
+    position: absolute;
     bottom: 0px;
-    align-items: center;
-    padding: 10px;
+    //align-items: center;
+    //padding: 10px;
     .MuiInput-underline:before{
         border-bottom: none;
     }
@@ -152,5 +154,24 @@ text-align: center;
 
 .scroll-flow {
     overflow-y: scroll;
-    height: 500px
+    @media screen and (min-width: 1024px) and  (max-width: 1300px) {
+     //   height: 400px;
+    }
+    @media screen and (min-width: 1300px) and (max-width: 1440px) {
+    //    height: 500px;
+    }
+    @media screen and (min-width: 1440px) {
+    //    height: 465px;
+    }
+    
+}
+
+.helper-text {
+font-family: Work Sans !important;
+font-size: 12px !important;
+font-style: normal;
+font-weight: 400;
+line-height: 21px;
+letter-spacing: 0px;
+text-align: center;
 }

@@ -3,6 +3,10 @@ import TextField from "@material-ui/core/TextField";
 
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import ConversationData from "./../../Conversation/Conversion.json";
+
+
+
+ 
 export default function Searchbox({ setUsers }) {
   const [serachBoxArr, setSearchBoxArr] = React.useState([]);
   return (
@@ -33,7 +37,7 @@ export default function Searchbox({ setUsers }) {
           setSearchBoxArr([]);
         }
       }}
-      renderInput={(params) => <TextField {...params} label="Search" />}
+      renderInput={(params) => <TextField {...params}   variant="outlined"  style={{minWidth:"280px", borderColor:"#fff", outline:"none"}} label="Search" />}
     />
   );
 }

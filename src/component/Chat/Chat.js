@@ -107,6 +107,8 @@ class Chat extends Component {
           </Grid>
         </List>
         </Grid>
+
+        
         <Divider />
         <Grid container className="message-box" >
           <Grid xs={1} item className="icon">
