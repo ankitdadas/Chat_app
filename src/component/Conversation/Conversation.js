@@ -83,9 +83,9 @@ class Conversation extends Component {
   getStatusIcon = (type) => {
     switch (type) {
       case "whatsApp":
-        return <WhatsAppIcon></WhatsAppIcon>;
+        return <WhatsAppIcon style={{ backgroundColor: "#3965FF", color: "#fff", borderRadius: "25px", fontSize: 14 }}></WhatsAppIcon>;
       case "sms":
-        return <SmsOutlinedIcon></SmsOutlinedIcon>;
+        return <SmsOutlinedIcon style={{ backgroundColor: "#3965FF", color: "#fff", borderRadius: "25px", fontSize: 14 }}></SmsOutlinedIcon>;
       default:
         return <></>;
     }
@@ -164,7 +164,7 @@ class Conversation extends Component {
                   <ListItemAvatar>
                     <ListItemIcon>
                       <Badge overlap="circular" anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                        badgeContent={<WhatsAppIcon style={{ backgroundColor: "#3965FF", color: "#fff", borderRadius: "25px", fontSize: 14 }}></WhatsAppIcon>}
+                        badgeContent={this.getStatusIcon(c.type)}
                       >
                         <Avatar style={{ width: "40px" }} alt="Travis Howard" src="/static/images/avatar/2.jpg" />
                       </Badge>
@@ -177,7 +177,7 @@ class Conversation extends Component {
                           {c.unread && c.unread.length > 0 && (<span className="dot"></span>)}
                         </Box>
                         <Box style={{ display: "flex", justifyContent: "space-between" }}>
-                          <div style={{ fontSize: 14, fontWeight: "400" }}> {c.contact.firstName} {c.contact.lastName}</div>
+                          <div style={{ fontSize: 14, fontWeight: "400" }}> {this.getNameOrMobileNumber(c)}</div>
                           <div>
 
                             <Moment style={{ fontSize: 14, fontWeight: "400" }} format="hh:mm A" withTitle>{c.created.at}</Moment>
