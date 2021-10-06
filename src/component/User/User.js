@@ -30,7 +30,7 @@ import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 import ArrowForwardIosIcon from "@material-ui/icons/ArrowForwardIos";
 import ListItem from "@material-ui/core/ListItem";
 import Drawer from "@material-ui/core/Drawer";
-import List from '@material-ui/core/List';
+import List from "@material-ui/core/List";
 
 const message = `Truncation should be conditionally applicable on this long line of text
  as this is a much longer line than what the container can support. `;
@@ -96,8 +96,6 @@ function User() {
       anchor="right"
       open={true}
     >
-    
-     
       <Grid item lg={2} md={2}>
         <Box spacing={2} className="user-block">
           <Box className="composeIcon">
@@ -147,7 +145,7 @@ function User() {
             {userDataDetail && (
               <Paper className="rectangle">
                 <Box wrap="wrap" container mt={4}>
-                  <Grid xs={12}>
+                  <Grid xs={11}>
                     <Typography class={classes.typography}>
                       {`${userDataDetail.contact.firstName} ${userDataDetail.contact.lastName}`}
                     </Typography>
@@ -184,6 +182,14 @@ function User() {
                       aria-controls="panel1a-content"
                       id="panel1a-header"
                     >
+                      <Grid xs={1}>
+                        <img
+                          height="30"
+                          width="30"
+                          alt={t.Integration}
+                          src={t.logo}
+                        />
+                      </Grid>
                       <Typography>{`${t.Integration}`}</Typography>
                       <Box textAlign="right" class={classes.Box}>
                         <CustomizedTooltip placement="top" title="Configure">
