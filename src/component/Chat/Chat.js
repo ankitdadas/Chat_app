@@ -402,6 +402,36 @@ class Chat extends Component {
               padding: "10px 10px 0px",
             }}
           >
+
+
+<Box   style={{
+                display: "flex",
+                justifyContent: "space-around",
+                alignItems: "flex-start",
+              }}>
+<IconButton>
+                <TokenIcon />
+              </IconButton>
+              <IconButton>
+                <CustomizedTooltip placement="top" title="Links">
+                  <InsertLinkSharpIcon></InsertLinkSharpIcon>
+                </CustomizedTooltip>
+              </IconButton>
+              <IconButton>
+                <CustomizedTooltip placement="top" title="Attachments">
+                  <AttachFileSharpIcon></AttachFileSharpIcon>
+                </CustomizedTooltip>
+              </IconButton>
+              <IconButton>
+                <TextIcon />
+              </IconButton>
+</Box>
+
+
+
+
+
+
             <Box
               style={{
                 display: "flex",
@@ -424,7 +454,7 @@ class Chat extends Component {
             <Box
               style={{
                 display: "flex",
-                justifyContent: "space-around",
+                justifyContent: "flex-end",
                 alignItems: "flex-start",
               }}
             >
@@ -433,22 +463,7 @@ class Chat extends Component {
                   <SendOutlinedIcon></SendOutlinedIcon>
                 </CustomizedTooltip>
               </IconButton>
-              <IconButton>
-                <TokenIcon />
-              </IconButton>
-              <IconButton>
-                <CustomizedTooltip placement="top" title="Links">
-                  <InsertLinkSharpIcon></InsertLinkSharpIcon>
-                </CustomizedTooltip>
-              </IconButton>
-              <IconButton>
-                <CustomizedTooltip placement="top" title="Attachments">
-                  <AttachFileSharpIcon></AttachFileSharpIcon>
-                </CustomizedTooltip>
-              </IconButton>
-              <IconButton>
-                <TextIcon />
-              </IconButton>
+         
             </Box>
           </Box>
         </Box>

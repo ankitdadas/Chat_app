@@ -19,6 +19,7 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  IconButton,
 } from "@material-ui/core";
 import ComposeIconBlack from "../Common/ComposeIconBlack/ComposeIconBlack";
 import CustomizedTooltip from "../Common/ToolTip/CustomizedTooltip";
@@ -42,12 +43,12 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 15,
   },
   paper: {
-    padding: theme.spacing(1), //grid padding
+     padding: theme.spacing(1), //grid padding
     textAlign: "center",
     color: theme.palette.text.secondary,
-    marginBottom: 20,
+    
     boxShadow: "none",
-    maxHeight: 325,
+    height:"calc(100vh - 240px)",
     overflow: "auto",
   },
   typography: {
@@ -98,14 +99,19 @@ function User() {
     >
     
      
-      <Grid item lg={2} md={2}>
+      
         <Box spacing={2} className="user-block">
-          <Box className="composeIcon">
-            <ComposeIconBlack />
-          </Box>
+          
 
-          <Grid item conatiner>
-            <Grid item conatiner>
+          <Grid  conatiner>
+          <Grid item xs={12} style={{textAlign:'right', marginBottom1:15}}>
+            <IconButton>
+               <ComposeIconBlack />
+               </IconButton>
+          </Grid>
+
+
+            <Grid item xs={12} style={{position:'relative'}}>
               <Grid
                 onClick={() => {
                   if (selectedIndx !== 0) {
@@ -126,6 +132,8 @@ function User() {
               <Grid className="userIcon">
                 <Avatar src="https://material-ui.com/static/images/avatar/1.jpg"></Avatar>
               </Grid>
+
+
               <Grid class="arrowIcon">
                 <CustomizedTooltip placement="right" title="Next">
                   <ArrowForwardIosIcon
@@ -142,38 +150,44 @@ function User() {
                   ></ArrowForwardIosIcon>
                 </CustomizedTooltip>
               </Grid>
+
+
             </Grid>
 
             {userDataDetail && (
-              <Paper className="rectangle">
-                <Box wrap="wrap" container mt={4}>
-                  <Grid xs={12}>
-                    <Typography class={classes.typography}>
-                      {`${userDataDetail.contact.firstName} ${userDataDetail.contact.lastName}`}
-                    </Typography>
-                  </Grid>
-                  <Grid>
-                    <MailOutlineSharpIcon></MailOutlineSharpIcon>
-                  </Grid>
-                  <Grid>
-                    <Box className="rectangle-text">
-                      {" "}
-                      {`${userDataDetail.contact.email} `}
+               <Grid item xs={12}>
+                  <Paper className="rectangle" borderRadius={10}>
+                    <Box wrap="wrap" container mt={4}>
+                      <Grid xs={12}>
+                        <Typography class={classes.typography}>
+                          {`${userDataDetail.contact.firstName} ${userDataDetail.contact.lastName}`}
+                        </Typography>
+                      </Grid>
+                      <Grid>
+                        <MailOutlineSharpIcon></MailOutlineSharpIcon>
+                      </Grid>
+                      <Grid>
+                        <Box className="rectangle-text">
+                          {" "}
+                          {`${userDataDetail.contact.email} `}
+                        </Box>
+                      </Grid>
                     </Box>
-                  </Grid>
-                </Box>
-                <Grid wrap="nowrap" container>
-                  <Grid>
-                    <PhoneOutlinedIcon></PhoneOutlinedIcon>
-                  </Grid>
-                  <Grid>
-                    <Box className="rectangle-text">{`${userDataDetail.contact.mobile.number} `}</Box>
-                  </Grid>
-                </Grid>
-              </Paper>
-            )}
+                    <Grid wrap="nowrap" container>
+                      <Grid>
+                        <PhoneOutlinedIcon></PhoneOutlinedIcon>
+                      </Grid>
+                      <Grid>
+                        <Box className="rectangle-text">{`${userDataDetail.contact.mobile.number} `}</Box>
+                      </Grid>
+                    </Grid>
+                  </Paper>
+           </Grid>
+           )}
           </Grid>
-          <Paper class={classes.paper}>
+        
+          <Grid item xs={12} style={{padding:"0px 15px"}}>
+             <Paper class={classes.paper}>
             {thirdPartyDetail &&
               thirdPartyDetail.length > 0 &&
               thirdPartyDetail.map((t) => {
@@ -182,15 +196,11 @@ function User() {
                   <Accordion>
                     <AccordionSummary
                       aria-controls="panel1a-content"
-                      id="panel1a-header"
+                      id="panel1a-header" 
+                      expandIcon={<ExpandMoreIcon />}
                     >
                       <Typography>{`${t.Integration}`}</Typography>
-                      <Box textAlign="right" class={classes.Box}>
-                        <CustomizedTooltip placement="top" title="Configure">
-                          <SettingsOutlinedIcon className="gearIcon"></SettingsOutlinedIcon>
-                        </CustomizedTooltip>
-                        <ExpandMoreIcon />
-                      </Box>
+                      
                     </AccordionSummary>
                     <AccordionDetails>
                       <Grid wrap="nowrap" spacing={0} container>
@@ -218,8 +228,11 @@ function User() {
                 );
               })}
           </Paper>
+          </Grid>
+       
+       
         </Box>
-      </Grid>
+       
     </Drawer>
   );
 }
