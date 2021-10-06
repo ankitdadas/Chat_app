@@ -8,18 +8,11 @@
 
 .user-block {
     height: 100%;
-    width: 100%;
-//left: 1249px;
-border-radius: 0px;
-background-color: #EAF0FF;
-//padding: 0px 10px;
-
+    width: 100%; 
+    border-radius: 0px;
+    background-color: #EAF0FF;
+    max-width: 310px;
  
-
- 
-
- 
-
 }
 
 .rectangle {
@@ -57,7 +50,7 @@ border-radius: nullpx;
 }
 
 .message-spacing {
-    margin-left: 15px;
+     font-size: 16px;
 }
 
 .gearIcon {
@@ -74,27 +67,10 @@ margin-right: 16px;
 }
 
 
-.arrowBackIcon {
-   
-    border-radius: 0px;
-   color: #A5AAAE;
-   margin-left: 45px;
-       height: 18px;
-       width: 9px;
-       position: absolute;
-   bottom: 10px;
-}
-.arrowIcon {
-     color: #A5AAAE;
-    margin-left:71%;
-    position: absolute;
-    bottom: 1px;
-    }
 
-.arrowUpIcon {
-    margin-top: -3px;
+ 
 
-}
+ 
 
 .italic-text {
     font-style: italic;
@@ -114,3 +90,32 @@ margin-right: 16px;
     }
 }
 
+.profileCard{
+    position: relative;
+    font-size: 20px;
+
+.userAvtarHolder{
+display: flex;
+justify-content: center;
+align-items: center;
+position: relative;
+margin-top: -62px;
+.profileCardImage{
+    width: 80px;
+    height: 80px;
+}
+
+    .arrowIcon{
+        background-color: transparent;
+        border-width: 0px;
+    }
+    .arrowIcon.left{
+        
+    }
+    .arrowIcon.right{
+         
+    }
+}
+
+   
+}

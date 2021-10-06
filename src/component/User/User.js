@@ -43,12 +43,12 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: 15,
   },
   paper: {
-     padding: theme.spacing(1), //grid padding
+    padding: theme.spacing(1), //grid padding
     textAlign: "center",
     color: theme.palette.text.secondary,
-    
+
     boxShadow: "none",
-    height:"calc(100vh - 240px)",
+    height: "calc(100vh - 240px)",
     overflow: "auto",
   },
   typography: {
@@ -97,130 +97,107 @@ function User() {
       anchor="right"
       open={true}
     >
-    
-     
-      
-        <Box spacing={2} className="user-block">
-          
-
-          <Grid  conatiner>
-          <Grid item xs={12} style={{textAlign:'right', marginBottom1:15}}>
-            <IconButton>
-               <ComposeIconBlack />
-               </IconButton>
+      <Box spacing={2} className="user-block" style={{ padding: "0px 15px" }}>
+        <Grid conatiner>
+          <Grid item xs={12} style={{ textAlign: 'right', marginBottom1: 15 }}>
+            <IconButton style={{ position: 'relative', zIndex: 999 }}>
+              <ComposeIconBlack />
+            </IconButton>
           </Grid>
-
-
-            <Grid item xs={12} style={{position:'relative'}}>
-              <Grid
-                onClick={() => {
-                  if (selectedIndx !== 0) {
-                    setThirdPartyDetail(
-                      ThirdParty.data[selectedIndx - 1].detail
-                    );
-                    setSelectedIndx(selectedIndx - 1);
-                    setUserDataDetail(UserData.data[selectedIndx - 1]);
-                  }
-                }}
-                className="arrowBackIcon"
-              >
-                <CustomizedTooltip placement="left" title="Previous">
-                  <ArrowBackIosIcon></ArrowBackIosIcon>
-                </CustomizedTooltip>
-              </Grid>
-
-              <Grid className="userIcon">
-                <Avatar src="https://material-ui.com/static/images/avatar/1.jpg"></Avatar>
-              </Grid>
-
-
-              <Grid class="arrowIcon">
-                <CustomizedTooltip placement="right" title="Next">
-                  <ArrowForwardIosIcon
-                    // disabled={selectedIndx === ThirdParty.data.length - 1}
-                    onClick={() => {
-                      if (selectedIndx !== ThirdParty.data.length - 1) {
+          <Box className="profileCard" style={{ position: 'relative' }}>
+            {userDataDetail && (
+              <Grid item xs={12}>
+                <Paper className="rectangle" borderRadius={10}>
+                  <Box className="userAvtarHolder">
+                    <IconButton onClick={() => {
+                      if (selectedIndx !== 0) {
                         setThirdPartyDetail(
-                          ThirdParty.data[selectedIndx + 1].detail
+                          ThirdParty.data[selectedIndx - 1].detail
                         );
-                        setUserDataDetail(UserData.data[selectedIndx + 1]);
-                        setSelectedIndx(selectedIndx + 1);
+                        setSelectedIndx(selectedIndx - 1);
+                        setUserDataDetail(UserData.data[selectedIndx - 1]);
                       }
                     }}
-                  ></ArrowForwardIosIcon>
-                </CustomizedTooltip>
-              </Grid>
+                      className="arrowIcon left">
+                      <CustomizedTooltip placement="left" title="Previous">
+                        <ArrowBackIosIcon></ArrowBackIosIcon>
+                      </CustomizedTooltip>
+                    </IconButton>
 
+                    <Avatar variant="circular" className="profileCardImage" alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
 
-            </Grid>
-
-            {userDataDetail && (
-               <Grid item xs={12}>
-                  <Paper className="rectangle" borderRadius={10}>
-                    <Box wrap="wrap" container mt={4}>
-                      <Grid xs={12}>
+                    <IconButton class="arrowIcon right">
+                      <CustomizedTooltip placement="right" title="Next">
+                        <ArrowForwardIosIcon
+                          // disabled={selectedIndx === ThirdParty.data.length - 1}
+                          onClick={() => {
+                            if (selectedIndx !== ThirdParty.data.length - 1) {
+                              setThirdPartyDetail(
+                                ThirdParty.data[selectedIndx + 1].detail
+                              );
+                              setUserDataDetail(UserData.data[selectedIndx + 1]);
+                              setSelectedIndx(selectedIndx + 1);
+                            }
+                          }}
+                        ></ArrowForwardIosIcon>
+                      </CustomizedTooltip>
+                    </IconButton>
+                  </Box>
+                  <Box wrap="wrap" container >
+                    <Grid container>
+                      <Grid xs={12} item style={{ textAlign: "center" }}>
                         <Typography class={classes.typography}>
                           {`${userDataDetail.contact.firstName} ${userDataDetail.contact.lastName}`}
                         </Typography>
                       </Grid>
-                      <Grid>
-                        <MailOutlineSharpIcon></MailOutlineSharpIcon>
-                      </Grid>
-                      <Grid>
-                        <Box className="rectangle-text">
-                          {" "}
+
+                      <Grid xs={12} item >
+                        <Box style={{ display: "flex", justifyContent: "flex-start", alignItems: "center" }} >
+                          <MailOutlineSharpIcon />
                           {`${userDataDetail.contact.email} `}
                         </Box>
                       </Grid>
-                    </Box>
-                    <Grid wrap="nowrap" container>
-                      <Grid>
-                        <PhoneOutlinedIcon></PhoneOutlinedIcon>
-                      </Grid>
-                      <Grid>
-                        <Box className="rectangle-text">{`${userDataDetail.contact.mobile.number} `}</Box>
+                      <Grid xs={12} item >
+                        <Box style={{ display: "flex", justifyContent: "flex-start", alignItems: "center" }} >
+                          <PhoneOutlinedIcon />
+                          {`${userDataDetail.contact.mobile.number} `}
+                        </Box>
                       </Grid>
                     </Grid>
-                  </Paper>
-           </Grid>
-           )}
-          </Grid>
-        
-          <Grid item xs={12} style={{padding:"0px 15px"}}>
-             <Paper class={classes.paper}>
+                   </Box>
+                </Paper>
+              </Grid>
+            )}
+          </Box>
+        </Grid>
+        <Grid item xs={12} >
+          <Paper class={classes.paper} borderRadius={10}>
             {thirdPartyDetail &&
               thirdPartyDetail.length > 0 &&
               thirdPartyDetail.map((t) => {
                 console.log(t.logo);
                 return (
-                  <Accordion>
+                  <Accordion >
                     <AccordionSummary
                       aria-controls="panel1a-content"
-                      id="panel1a-header" 
+                      id="panel1a-header"
                       expandIcon={<ExpandMoreIcon />}
+                      style={{ alignItems: "center", minHeight: "40px" }}
                     >
+                      <img width="30" alt={t.Integration} src={t.logo} style={{ marginRight: "15px" }} />
                       <Typography>{`${t.Integration}`}</Typography>
-                      
+
                     </AccordionSummary>
-                    <AccordionDetails>
+                    <AccordionDetails >
                       <Grid wrap="nowrap" spacing={0} container>
-                        <Grid xs={1}>
-                          <img
-                            height="30"
-                            width="30"
-                            alt={t.Integration}
-                            src={t.logo}
-                          />
+                        <Grid xs={1} style={{ minWidth: "40px" }}>
+
                         </Grid>
                         <Grid className="message-spacing">
-                          <Box className="rectangle-text">{t.gender}</Box>
-                          <Box className="rectangle-text italic-text">
-                            {t.age}
-                          </Box>
-                          <Box className="rectangle-text italic-text">
-                            {t.color}
-                          </Box>
-                          <Box className="rectangle-text">{t.country}</Box>
+                          <div>{t.gender}</div>
+                          <div>{t.age}</div>
+                          <div>{t.color}</div>
+                          <div>{t.country}</div>
                         </Grid>
                       </Grid>
                     </AccordionDetails>
@@ -228,11 +205,8 @@ function User() {
                 );
               })}
           </Paper>
-          </Grid>
-       
-       
-        </Box>
-       
+        </Grid>
+      </Box>
     </Drawer>
   );
 }
