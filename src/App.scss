@@ -84,3 +84,39 @@ border-radius: 0px;
   align-items: flex-start;
  
 }
+
+.sideNavigationHolder{
+padding-left: 5px !important;
+padding-right: 5px !important;
+
+.sideNavigation{
+  li{
+    &:hover{
+      background: #f8f8f8;
+      a{
+        color: #000 !important;
+        svg{
+          fill:#000;
+        }
+      }
+    }
+    a{
+      color: #ccc !important;
+      svg{
+        fill:#ccc;
+      }
+    }
+
+    a.selected{
+      color: #000 !important;
+      svg{
+        fill:#000;
+      }
+    }
+
+  }
+
+
+
+  }
+}

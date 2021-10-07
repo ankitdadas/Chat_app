@@ -15,78 +15,70 @@ import GroupIcon from "../Common/GroupIcon/GroupIcon";
 import TextIcon from "../Common/TextIcon/TextIcon";
 import CustomizedTooltip from "../Common/ToolTip/CustomizedTooltip";
 import { NavLink } from "react-router-dom";
-import { IconButton, Toolbar, Drawer, Box } from "@material-ui/core";
-const drawerWidth = 60;
+import { IconButton, Toolbar, Drawer, Box, List, ListItem } from "@material-ui/core";
+ 
+const drawerWidth = 40;
 function LeftSidePanel() {
   return (
 
     
-     <Drawer variant="permanent" style={{flexDirection:"column", justifyContent:"space-between", padding:"70px 5px 0px",}} > 
-    <Toolbar style={{flexDirection:"column", paddingTop:70}}>
-      <IconButton>
-          <NavLink to={"/"} exact activeClassName="selected">
-            <InboxIcon />
-          </NavLink>
-      </IconButton>
+     <Drawer variant="permanent"   anchor="left" style={{flexDirection:"column", justifyContent:"space-between", padding:"70px 5px 0px",}} > 
+        <Toolbar className="sideNavigationHolder" style={{flexDirection:"column", padding:"70px 5px 0px !important", position:"relative", top:70}}>
 
+        <List className="sideNavigation">
+          <ListItem>
+              <NavLink to={"/"} exact activeClassName="selected">
+                  <InboxIcon />
+              </NavLink>
+          </ListItem>
+          <ListItem >
+            <NavLink to={"/Campaigns"} exact activeClassName="selected">
+              <Podcast />
+            </NavLink>
+          </ListItem>
+          <ListItem >
+            <NavLink to={"/Contacts"} exact activeClassName="selected">
+              <GroupIcon />
+            </NavLink>
+          </ListItem>
+         
+          <ListItem >
+            <NavLink to={"/Templates"} exact activeClassName="selected">
+              <TextIcon />
+            </NavLink>
+          </ListItem>
+          <ListItem >
+            <NavLink to={"/Tools"} exact activeClassName="selected">
+              <PanelIcon />
+            </NavLink>
+          </ListItem>
+          <ListItem >
+            <NavLink to={"/Featurerequests"} exact activeClassName="selected">
+              <ConstructionIcon />
+            </NavLink>
+          </ListItem>
 
-      <IconButton>
-          <NavLink to={"/Campaigns"} exact activeClassName="selected">
-            <Podcast />
-          </NavLink>
-      </IconButton>
-
-
-
-      <IconButton>
-          <NavLink to={"/Contacts"} exact activeClassName="selected">
-            <GroupIcon />
-          </NavLink>
-      </IconButton>
-
-      <IconButton>
-          <NavLink to={"/Templates"} exact activeClassName="selected">
-            <TextIcon />
-          </NavLink>
-      </IconButton>
-
-      <IconButton>
-          <NavLink to={"/Tools"} exact activeClassName="selected">
-            <PanelIcon />
-          </NavLink>
-      </IconButton>
-
-
-
-      <IconButton>
-          <NavLink to={"/Featurerequests"} exact activeClassName="selected">
-            <ConstructionIcon />
-          </NavLink>
-      </IconButton>
-
-
+        </List>
+        
+   
     </Toolbar>
 
-    <Box  sx={{ flexGrow: 1 }}
-            ></Box>
+    <Box sx={{ flexGrow: 1 }}></Box>
 
-<Toolbar  style={{flexDirection:"column"}} >
-      <IconButton>
-        <CustomizedTooltip title="Status">
-          <SentimentSatisfiedOutlinedIcon className="panel-icon smile-icon"></SentimentSatisfiedOutlinedIcon>
-        </CustomizedTooltip>
-      </IconButton>
-      <IconButton>
-        <CustomizedTooltip title="Status">
-          <SentimentSatisfiedOutlinedIcon className="panel-icon smile-icon"></SentimentSatisfiedOutlinedIcon>
-        </CustomizedTooltip>
-      </IconButton>
-      
-
-</Toolbar>
-
-
-     
+      <Toolbar className="sideNavigationHolder" style={{flexDirection:"column", padding:"0 5px 0px"}} >
+              <List>
+              <ListItem >
+                    <CustomizedTooltip title="Status">
+                        <SentimentSatisfiedOutlinedIcon className="panel-icon smile-icon"></SentimentSatisfiedOutlinedIcon>
+                    </CustomizedTooltip>
+              </ListItem>
+              <ListItem >
+                <CustomizedTooltip title="Status">
+                  <SentimentSatisfiedOutlinedIcon className="panel-icon smile-icon"></SentimentSatisfiedOutlinedIcon>
+                </CustomizedTooltip>
+              </ListItem>
+            </List>
+    </Toolbar>    
 </Drawer>
   );
 }

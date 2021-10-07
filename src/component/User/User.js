@@ -20,6 +20,7 @@ import {
   AccordionSummary,
   AccordionDetails,
   IconButton,
+  Toolbar,
 } from "@material-ui/core";
 import ComposeIconBlack from "../Common/ComposeIconBlack/ComposeIconBlack";
 import CustomizedTooltip from "../Common/ToolTip/CustomizedTooltip";
@@ -36,7 +37,7 @@ import List from '@material-ui/core/List';
 const message = `Truncation should be conditionally applicable on this long line of text
  as this is a much longer line than what the container can support. `;
 
- const drawerWidth = 200;
+ 
 const useStyles = makeStyles((theme) => ({
    
   
@@ -70,29 +71,12 @@ function User() {
   const [userDataDetail, setUserDataDetail] = React.useState(UserData.data[0]);
   const [open, setOpen] = React.useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+ 
   return (
     <>
 
-<Drawer
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          '& .MuiDrawer-paper': {
-            width: drawerWidth,
-          },
-        }}
-        variant="persistent"
-        anchor="right"
-        open={true}
-      >
-          <Box spacing={2} className="user-block" style={{ padding: "70px 8px 0px" }}>
+ 
+      <Box spacing={2} className="user-block" style={{ padding: "68px 8px 0px" }}>
         <Grid conatiner>
           <Grid item xs={12} style={{ textAlign: 'right', marginBottom1: 15 }}>
             <IconButton style={{ position: 'relative', zIndex: 999 }}>
@@ -210,7 +194,7 @@ function User() {
   
 
 
-      </Drawer>
+    
 
     {/* ============= old drawer  ============== */ }
  
