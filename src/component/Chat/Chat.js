@@ -37,7 +37,7 @@ import CustomizedTooltip from "./../Common/ToolTip/CustomizedTooltip";
 class Chat extends Component {
   render() {
     return (
-      <Grid item lg={7} md={7} sm={6} className="chat-grid">
+      <Box className="chat-grid">
         <Box
           className="chatBoxHolder"
           style={{ height: "calc(100vh - 242px)" }}
@@ -467,7 +467,7 @@ class Chat extends Component {
             </Box>
           </Box>
         </Box>
-      </Grid>
+      </Box>
     );
   }
 }

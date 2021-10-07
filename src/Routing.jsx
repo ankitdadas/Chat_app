@@ -16,7 +16,7 @@ import { Box } from "@material-ui/core";
 const Routing = () => {
   return (
     <>
-          <LeftSidePanel></LeftSidePanel>         
+          <LeftSidePanel/>         
       <Switch>
         <Route exact path="/" component={InboxPage} />
         <Route exact path="/Campaigns" component={CampaignsPage} />

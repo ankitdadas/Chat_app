@@ -16,9 +16,8 @@ const Master = () => {
   return (
     <>
       <Router>
-        <Grid className="appBarHeader" container>
-          <Grid item xs={12}>
-            <AppBar position="sticky" color="transparent" elevation={0} >
+        
+          <AppBar position="fixed" className="appBarHeader"  elevation={0} >
               <Toolbar>
 
                 <LogoIcon sx={{ mr: 2 }} className="logoicon"></LogoIcon>
@@ -44,10 +43,9 @@ const Master = () => {
                 </IconButton>
               </Toolbar>
             </AppBar>
-          </Grid>
-        </Grid>
+           
         
-        <Grid container className="chatSection">
+        <Grid container className="mainChatSection">
           <Routing></Routing>
         </Grid>
       </Router>

@@ -86,6 +86,7 @@ function User() {
   };
   return (
     <Drawer
+    className="rightSidebarHolder"
       sx={{
         width: drawerWidth,
         flexShrink: 0,
@@ -96,6 +97,7 @@ function User() {
       variant="persistent"
       anchor="right"
       open={true}
+      
     >
       <Box spacing={2} className="user-block" style={{ padding: "0px 15px" }}>
         <Grid conatiner>
