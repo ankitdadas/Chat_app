@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import InboxPage from "./../src/Pages/Inbox/Index";
 import CampaignsPage from "./../src/Pages/Campaigns";
 
@@ -30,7 +30,6 @@ const Routing = () => {
         <Route exact path="/Tools" component={ToolsPage} />
         <Route exact path="/Featurerequests" component={FeatureRequestsPage} />
       </Switch>
-      
     </>
   );
 };
