@@ -58,6 +58,12 @@ border-radius: 0px;
   background: #fff !important;
   border-bottom: 1px #efefef solid;
    width:calc(100% - 350px);
+
+   button{
+     svg{
+       color: #324552 ;
+     }
+   }
   h6{
     a{
       color: #324552;
@@ -101,9 +107,9 @@ padding-right: 5px !important;
       }
     }
     a{
-      color: #ccc !important;
+      color: #AAB2B8 !important;
       svg{
-        fill:#ccc;
+        fill:#AAB2B8;
       }
     }
 
@@ -118,5 +124,13 @@ padding-right: 5px !important;
 
 
 
+  }
+}
+
+.rightSidebarHolder{
+  background: #EAF0FF;
+  .MuiDrawer-paper{
+    background: #EAF0FF;
+    max-width: 350px;
   }
 }

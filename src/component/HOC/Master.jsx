@@ -27,15 +27,15 @@ const Master = () => {
                 <Box sx={{ flexGrow: 1 }} />
 
 
-                <IconButton size="large" color="primary">
+                <IconButton size="large" >
                   <CustomizedTooltip title="Support center" placement="bottom">
                     <HelpOutlineIcon></HelpOutlineIcon>
                   </CustomizedTooltip>
                 </IconButton>
-                <IconButton size="large" color="primary">
+                <IconButton size="large" >
                   <BellIcon />
                 </IconButton>
-                <IconButton size="large" color="primary">
+                <IconButton size="large" >
                   <CustomizedTooltip title="Settings" placement="bottom">
                     <SettingsOutlinedIcon></SettingsOutlinedIcon>
                   </CustomizedTooltip>

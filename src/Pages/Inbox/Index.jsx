@@ -23,17 +23,17 @@ export default function Index() {
 
   return (
     <>
-      <Box className="ChatMainPageHolder" style={{width:"calc(100% - 500px)"}} >
+      <Box className="ChatMainPageHolder" style={{width:"calc(100% - 431px)"}} >
         <Conversation />
         <Chat />      
       </Box>
-      <Drawer style={{width:300}}  
-       sx={{
-         
+      <Drawer className="rightSidebarHolder"  
+       sx={{         
         flexShrink: 0,
         '& .MuiDrawer-paper': {
          width:300,
           boxSizing: 'border-box',
+          
            
         },
       }}

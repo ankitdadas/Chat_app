@@ -18,30 +18,9 @@
 
 
 
-.rectangle {
-    height: 125px;
-    left: 1260px;
-    top: 357px;
-    border-radius: 15px !important;
-    margin-bottom: 15px;
-    padding: 15px;
+ 
 
-    .MuiBox-root{
-        flex-wrap: wrap;
-        display: flex;
-    }
-
-}
-
-.rectangle-text{
-    padding-left: 10px;
-    font-family: Work Sans;
-font-size: 14px;
-font-weight: 400;
-line-height: 21px;
-letter-spacing: 0px;
-text-align: left;
-}
+ 
 
 .address-text {
     height: 21px;
@@ -111,12 +90,28 @@ margin-top: -62px;
     .arrowIcon{
         background-color: transparent;
         border-width: 0px;
+        svg{
+            color: #AAB2B8;
+        }
     }
     .arrowIcon.left{
         
     }
     .arrowIcon.right{
          
+    }
+}
+
+.profileCardInner{
+    padding: 15px;
+    max-width: 87%;
+    margin:auto;
+    .profileCardText{
+        margin-top: 10px;
+        font-size:15px;
+        svg{
+            margin-right: 15px;
+        }
     }
 }
 

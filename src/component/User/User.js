@@ -76,7 +76,7 @@ function User() {
     <>
 
  
-      <Box spacing={2} className="user-block" style={{ padding: "68px 8px 0px" }}>
+      <Box spacing={2} className="user-block" style={{ padding: "68px 0px 0px" }}>
         <Grid conatiner>
           <Grid item xs={12} style={{ textAlign: 'right', marginBottom1: 15 }}>
             <IconButton style={{ position: 'relative', zIndex: 999 }}>
@@ -86,7 +86,7 @@ function User() {
           <Box className="profileCard" style={{ position: 'relative' }}>
             {userDataDetail && (
               <Grid item xs={12}>
-                <Paper className="rectangle" borderRadius={10}>
+                <Paper className="profileCardInner" borderRadius={10}>
                   <Box className="userAvtarHolder">
                     <IconButton onClick={() => {
                       if (selectedIndx !== 0) {
@@ -130,18 +130,18 @@ function User() {
                         </Typography>
                       </Grid>
 
-                      <Grid xs={12} item >
-                        <Box style={{ display: "flex", justifyContent: "flex-start", alignItems: "center" }} >
+                       
+                        <Box className="profileCardText" style={{ display: "flex", justifyContent: "flex-start", alignItems: "center" }} >
                           <MailOutlineSharpIcon />
                           {`${userDataDetail.contact.email} `}
                         </Box>
-                      </Grid>
-                      <Grid xs={12} item >
-                        <Box style={{ display: "flex", justifyContent: "flex-start", alignItems: "center" }} >
+                      
+                      
+                        <Box  className="profileCardText" style={{ display: "flex", justifyContent: "flex-start", alignItems: "center",  }} >
                           <PhoneOutlinedIcon />
                           {`${userDataDetail.contact.mobile.number} `}
                         </Box>
-                      </Grid>
+                      
                     </Grid>
                    </Box>
                 </Paper>
@@ -168,7 +168,7 @@ function User() {
                       <Typography>{`${t.Integration}`}</Typography>
                       </div>
                       
-                      <SettingsOutlinedIcon/>
+                      <SettingsOutlinedIcon style={{color:"#AAB2B8"}}/>
                        
 
                     </AccordionSummary>
