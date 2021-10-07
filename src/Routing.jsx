@@ -11,12 +11,16 @@ import TemplatesPage from "./../src/Pages/Templates";
 
 import ToolsPage from "./../src/Pages/Tools";
 import LeftSidePanel from "./component/LeftSidePanel/LeftSidePanel";
-import { Box } from "@material-ui/core";
+ 
+
+
 
 const Routing = () => {
   return (
     <>
-          <LeftSidePanel/>         
+
+             
+        <LeftSidePanel/> 
       <Switch>
         <Route exact path="/" component={InboxPage} />
         <Route exact path="/Campaigns" component={CampaignsPage} />

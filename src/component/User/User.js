@@ -36,19 +36,17 @@ import List from '@material-ui/core/List';
 const message = `Truncation should be conditionally applicable on this long line of text
  as this is a much longer line than what the container can support. `;
 
+ const drawerWidth = 200;
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    width: "70vw",
-    borderRadius: 15,
-  },
+   
+  
   paper: {
     padding: theme.spacing(1), //grid padding
     textAlign: "center",
     color: theme.palette.text.secondary,
 
     boxShadow: "none",
-    height: "calc(100vh - 240px)",
+    height: "calc(100vh - 315px)",
     overflow: "auto",
   },
   typography: {
@@ -58,15 +56,10 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 10,
     marginBottom: 20,
   },
-  Box: {
-    display: "flex",
-  },
-  ListItem: {
-    display: "flex",
-    justifyContent: "end",
-  },
+  
+  
 }));
-const drawerWidth = 450;
+
 function User() {
   //create class based upon class outside of export default.
   const classes = useStyles();
@@ -85,21 +78,21 @@ function User() {
     setOpen(false);
   };
   return (
-    <Drawer
-    className="rightSidebarHolder"
-      sx={{
-        width: drawerWidth,
-        flexShrink: 0,
-        "& .MuiDrawer-paper": {
+    <>
+
+<Drawer
+        sx={{
           width: drawerWidth,
-        },
-      }}
-      variant="persistent"
-      anchor="right"
-      open={true}
-      
-    >
-      <Box spacing={2} className="user-block" style={{ padding: "0px 15px" }}>
+          flexShrink: 0,
+          '& .MuiDrawer-paper': {
+            width: drawerWidth,
+          },
+        }}
+        variant="persistent"
+        anchor="right"
+        open={true}
+      >
+          <Box spacing={2} className="user-block" style={{ padding: "70px 8px 0px" }}>
         <Grid conatiner>
           <Grid item xs={12} style={{ textAlign: 'right', marginBottom1: 15 }}>
             <IconButton style={{ position: 'relative', zIndex: 999 }}>
@@ -184,10 +177,15 @@ function User() {
                       aria-controls="panel1a-content"
                       id="panel1a-header"
                       expandIcon={<ExpandMoreIcon />}
-                      style={{ alignItems: "center", minHeight: "40px" }}
+                      style={{ alignItems: "center", display:"flex", justifyContent:"space-between", minHeight: "40px" }}
                     >
+                      <div  style={{ alignItems: "center", display:"flex", width:"100%" }}>
                       <img width="30" alt={t.Integration} src={t.logo} style={{ marginRight: "15px" }} />
                       <Typography>{`${t.Integration}`}</Typography>
+                      </div>
+                      
+                      <SettingsOutlinedIcon/>
+                       
 
                     </AccordionSummary>
                     <AccordionDetails >
@@ -209,7 +207,15 @@ function User() {
           </Paper>
         </Grid>
       </Box>
-    </Drawer>
+  
+
+
+      </Drawer>
+
+    {/* ============= old drawer  ============== */ }
+ 
+
+    </>
   );
 }
 

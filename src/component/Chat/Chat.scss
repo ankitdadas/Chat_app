@@ -21,7 +21,7 @@
 
 .chat-grid {
     position: relative;
-    width: calc(100% - 800px);
+  flex-grow: 1;
 }
 
 .chat-msg {
@@ -212,6 +212,11 @@ text-align: right;
         .chatBox{
             margin-right: 0px;
             margin-left: auto;
+            .messageBoxBlue{
+                background-color: #f8f8f8;
+                color:#000;
+                
+            }
         }
     }
 }

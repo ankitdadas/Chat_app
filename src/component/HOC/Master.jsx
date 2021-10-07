@@ -15,9 +15,8 @@ import { AppBar, IconButton, Toolbar, Box } from "@material-ui/core";
 const Master = () => {
   return (
     <>
-      <Router>
-        
-          <AppBar position="fixed" className="appBarHeader"  elevation={0} >
+      <Router>        
+        <AppBar position="fixed" style={{zIndex:9999}} className="appBarHeader"  elevation={0} >
               <Toolbar>
 
                 <LogoIcon sx={{ mr: 2 }} className="logoicon"></LogoIcon>
@@ -28,28 +27,25 @@ const Master = () => {
                 <Box sx={{ flexGrow: 1 }} />
 
 
-                <IconButton size="large" color="inherit">
+                <IconButton size="large" color="primary">
                   <CustomizedTooltip title="Support center" placement="bottom">
                     <HelpOutlineIcon></HelpOutlineIcon>
                   </CustomizedTooltip>
                 </IconButton>
-                <IconButton size="large" color="inherit">
+                <IconButton size="large" color="primary">
                   <BellIcon />
                 </IconButton>
-                <IconButton size="large" color="inherit">
+                <IconButton size="large" color="primary">
                   <CustomizedTooltip title="Settings" placement="bottom">
                     <SettingsOutlinedIcon></SettingsOutlinedIcon>
                   </CustomizedTooltip>
                 </IconButton>
               </Toolbar>
             </AppBar>
-           
-        
         <Grid container className="mainChatSection">
           <Routing></Routing>
         </Grid>
       </Router>
-
       </>
   );
 };

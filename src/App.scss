@@ -72,5 +72,15 @@ border-radius: 0px;
 }
 
 .mainChatSection{
-  margin-top: 70px;
+  margin-top: 65px;
+}
+
+
+.ChatMainPageHolder{
+  display: flex;
+  margin-left: 71px;
+  width: calc(100% - 430px);
+  justify-content: flex-start;
+  align-items: flex-start;
+ 
 }

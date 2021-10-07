@@ -35,15 +35,9 @@ import { Button, ListItemAvatar, SmallAvatar, Badge } from "@material-ui/core";
 
 const styles = {
   ListItemText: {
-    overflow: "hidden",
-    position: "relative",
-    lineHeight: "1em",
-    height: "2.5em",
-    width: "180px",
-    display: "-webkit-box",
-    boxOrient: "vertical",
-    lineClamp: 2,
-    wordBreak: "break-all",
+    
+    
+     
   },
   root: {
     MuiAvatar: {
@@ -117,8 +111,7 @@ class Conversation extends Component {
   render() {
     const { classes } = this.props;
     return (
-      <Grid className="blue-bg block-spacing" lg="auto" md="auto" >
-
+      <Grid className="conversationBox"  >
 
         <Grid item className="compose-block" xs={12}>
           <Button className="compose-button" variant="contained" size="large" color="primary">
@@ -130,7 +123,7 @@ class Conversation extends Component {
         <Grid item xs={12}>
           <Paper elevation={0}
             component="form" style={{ display: "flex", justifyContent: "flex-end", marginBottom: 10, marginTop: 10 }}
-            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
+            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center',  }}
           >
             <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
               <SearchIcon />
@@ -184,7 +177,7 @@ class Conversation extends Component {
                           </div>
                         </Box>
 
-                        <Box className="textMessage" component="div" style={{ width: "280px", whiteSpace: 'nowrap', margin: "0px auto", fontSize: "12px" }} sx={{
+                        <Box className="textMessage" component="div" style={{ whiteSpace: 'nowrap', width:"100%", maxWidth:"210px", margin: "0px auto", fontSize: "12px" }} sx={{
                           textOverflow: 'ellipsis', my: 2,
                           overflow: 'hidden',
                         }}>

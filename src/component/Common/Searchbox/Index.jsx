@@ -37,7 +37,7 @@ export default function Searchbox({ setUsers }) {
           setSearchBoxArr([]);
         }
       }}
-      renderInput={(params) => <TextField {...params}   variant="outlined"  style={{minWidth:"280px", borderColor:"#fff", outline:"none"}} label="Search" />}
+      renderInput={(params) => <TextField {...params}   variant="outlined"  style={{minWidth:"220px", borderColor:"#fff", outline:"none", marginLeft:"5px", marginRight:"5px"}} label="Search" />}
     />
   );
 }
