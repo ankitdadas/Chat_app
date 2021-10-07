@@ -15,52 +15,71 @@ import GroupIcon from "../Common/GroupIcon/GroupIcon";
 import TextIcon from "../Common/TextIcon/TextIcon";
 import CustomizedTooltip from "../Common/ToolTip/CustomizedTooltip";
 import { NavLink } from "react-router-dom";
-
+import { IconButton, Toolbar, Drawer, Box, List, ListItem } from "@material-ui/core";
+ 
+const drawerWidth = 40;
 function LeftSidePanel() {
   return (
-    <Grid item xs={1} className="panel-container" direction="row" container>
-      <Grid lg={12} md={12} >
-        <Grid lg={12}>
-          <NavLink to={"/"} exact activeClassName="selected">
-            <InboxIcon />
-          </NavLink>
-        </Grid>
-        <Grid lg={12}>
-          <NavLink to={"/Campaigns"} exact activeClassName="selected">
-            <Podcast />
-          </NavLink>
-        </Grid>
-        <Grid lg={12}>
-          <NavLink to={"/Templates"} exact activeClassName="selected">
-            <TextIcon />
-          </NavLink>
-        </Grid>
-        <Grid lg={12}>
-          <NavLink to={"/Contacts"} exact activeClassName="selected">
-            <GroupIcon />
-          </NavLink>
-        </Grid>
-        <Grid lg={12}>
-          <NavLink to={"/Tools"} exact activeClassName="selected">
-            <PanelIcon />
-          </NavLink>
-        </Grid>
 
-        <Grid lg={12}>
-          <NavLink to={"/Featurerequests"} exact activeClassName="selected">
-            <ConstructionIcon />
-          </NavLink>
-        </Grid>
-      </Grid>
-      <Grid lg={12}>
-        <CustomizedTooltip title="Status">
-          <SentimentSatisfiedOutlinedIcon className="panel-icon smile-icon"></SentimentSatisfiedOutlinedIcon>
-        </CustomizedTooltip>
-        <CustomizedTooltip title="Status">
-          <SentimentSatisfiedOutlinedIcon className="panel-icon smile-icon"></SentimentSatisfiedOutlinedIcon>
-        </CustomizedTooltip>
-      </Grid>
-    </Grid>
+    
+     <Drawer variant="permanent"   anchor="left" style={{flexDirection:"column", justifyContent:"space-between", padding:"70px 5px 0px",}} > 
+        <Toolbar className="sideNavigationHolder" style={{flexDirection:"column", padding:"70px 5px 0px !important", position:"relative", top:70}}>
+
+        <List className="sideNavigation">
+          <ListItem>
+              <NavLink to={"/"} exact activeClassName="selected">
+                  <InboxIcon />
+              </NavLink>
+          </ListItem>
+          <ListItem >
+            <NavLink to={"/Campaigns"} exact activeClassName="selected">
+              <Podcast />
+            </NavLink>
+          </ListItem>
+          <ListItem >
+            <NavLink to={"/Contacts"} exact activeClassName="selected">
+              <GroupIcon />
+            </NavLink>
+          </ListItem>
+         
+          <ListItem >
+            <NavLink to={"/Templates"} exact activeClassName="selected">
+              <TextIcon />
+            </NavLink>
+          </ListItem>
+          <ListItem >
+            <NavLink to={"/Tools"} exact activeClassName="selected">
+              <PanelIcon />
+            </NavLink>
+          </ListItem>
+          <ListItem >
+            <NavLink to={"/Featurerequests"} exact activeClassName="selected">
+              <ConstructionIcon />
+            </NavLink>
+          </ListItem>
+
+        </List>
+        
+   
+    </Toolbar>
+
+    <Box sx={{ flexGrow: 1 }}></Box>
+
+      <Toolbar className="sideNavigationHolder" style={{flexDirection:"column", padding:"0 5px 0px"}} >
+              <List>
+              <ListItem >
+                    <CustomizedTooltip title="Status">
+                        <SentimentSatisfiedOutlinedIcon className="panel-icon smile-icon"></SentimentSatisfiedOutlinedIcon>
+                    </CustomizedTooltip>
+              </ListItem>
+              <ListItem >
+                <CustomizedTooltip title="Status">
+                  <SentimentSatisfiedOutlinedIcon className="panel-icon smile-icon"></SentimentSatisfiedOutlinedIcon>
+                </CustomizedTooltip>
+              </ListItem>
+            </List>
+    </Toolbar>    
+</Drawer>
   );
 }
 

@@ -16,10 +16,8 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 const Master = () => {
   return (
     <>
-      <Router>
-        <Grid className="appBarHeader" container>
-          <Grid item xs={12}>
-            <AppBar position="sticky" color="transparent" elevation={0}>
+      <Router>        
+        <AppBar position="fixed" style={{zIndex:9999}} className="appBarHeader"  elevation={0} >
               <Toolbar>
                 <Link to={"/"}>
                   <LogoIcon sx={{ mr: 2 }} className="logoicon"></LogoIcon>
@@ -33,16 +31,17 @@ const Master = () => {
                   </CustomizedTooltip>
                 </IconButton>
                 <Box sx={{ flexGrow: 1 }} />
-                
-                <IconButton size="large" color="inherit">
+
+
+                <IconButton size="large" >
                   <CustomizedTooltip title="Support center" placement="bottom">
                     <HelpOutlineIcon></HelpOutlineIcon>
                   </CustomizedTooltip>
                 </IconButton>
-                <IconButton size="large" color="inherit">
+                <IconButton size="large" >
                   <BellIcon />
                 </IconButton>
-                <IconButton size="large" color="inherit">
+                <IconButton size="large" >
                   <CustomizedTooltip title="Settings" placement="bottom">
                     <SettingsOutlinedIcon></SettingsOutlinedIcon>
                   </CustomizedTooltip>
@@ -50,14 +49,11 @@ const Master = () => {
                 
               </Toolbar>
             </AppBar>
-          </Grid>
-        </Grid>
-
-        <Grid container className="chatSection">
+        <Grid container className="mainChatSection">
           <Routing></Routing>
         </Grid>
       </Router>
-    </>
+      </>
   );
 };
 

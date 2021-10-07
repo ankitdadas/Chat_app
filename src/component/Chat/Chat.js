@@ -24,10 +24,12 @@ import TextIcon from "../Common/TextIcon/TextIcon";
 import TokenIcon from "../Common/TokenIcon/TokenIcon";
 import Typography from "@material-ui/core/Typography";
 import {
+  AppBar,
   Box,
   IconButton,
   ListItemAvatar,
   TextareaAutosize,
+  Toolbar
 } from "@material-ui/core";
 
 // import TextSnippetOutlinedIcon from '@material-ui/icons/TextSnippetOutlined';
@@ -37,11 +39,20 @@ import CustomizedTooltip from "./../Common/ToolTip/CustomizedTooltip";
 class Chat extends Component {
   render() {
     return (
-      <Grid item lg={7} md={7} sm={6} className="chat-grid">
+      <Box className="chat-grid">
+        <AppBar color="default" elevation={0}  position="absolute">
+   <Toolbar style={{textAlign:"right", display:"flex", justifyContent:"flex-end"}}>
+     <IconButton>
+       <TextIcon/>
+     </IconButton>
+   </Toolbar>
+</AppBar>
         <Box
           className="chatBoxHolder"
-          style={{ height: "calc(100vh - 242px)" }}
+          style={{ height: "calc(100vh - 160px)" }}
         >
+
+
           {/*============ left section start ============ */}
           <Box className="chatSection">
             <List className="chatBox">
@@ -402,6 +413,30 @@ class Chat extends Component {
               padding: "10px 10px 0px",
             }}
           >
+
+
+            <Box   style={{
+                            display: "flex",
+                            justifyContent: "space-around",
+                            alignItems: "flex-start",
+                          }}>
+                <IconButton>
+                  <TokenIcon />
+                </IconButton>
+                <IconButton>
+                  <CustomizedTooltip placement="top" title="Links">
+                    <InsertLinkSharpIcon></InsertLinkSharpIcon>
+                  </CustomizedTooltip>
+                </IconButton>
+                <IconButton>
+                  <CustomizedTooltip placement="top" title="Attachments">
+                    <AttachFileSharpIcon></AttachFileSharpIcon>
+                  </CustomizedTooltip>
+                </IconButton>
+                <IconButton>
+                  <TextIcon />
+                </IconButton>
+            </Box>
             <Box
               style={{
                 display: "flex",
@@ -412,19 +447,19 @@ class Chat extends Component {
             >
               <TextareaAutosize
                 aria-label="minimum height"
-                minRows={3}
+                minRows={1}
+                maxRows={3}
                 placeholder="Minimum 3 rows"
-                style={{ width: "100%" }}
+                style={{ width: "100%", border:0, background:"#f1f1f1",  padding:"8px 15px", maxWidth:"95%" }}
               />
               <Typography className="helper-text">
                 3 segments (23 characters remaining)
               </Typography>
             </Box>
-
             <Box
               style={{
                 display: "flex",
-                justifyContent: "space-around",
+                justifyContent: "flex-end",
                 alignItems: "flex-start",
               }}
             >
@@ -432,27 +467,11 @@ class Chat extends Component {
                 <CustomizedTooltip placement="top" title="Send">
                   <SendOutlinedIcon></SendOutlinedIcon>
                 </CustomizedTooltip>
-              </IconButton>
-              <IconButton>
-                <TokenIcon />
-              </IconButton>
-              <IconButton>
-                <CustomizedTooltip placement="top" title="Links">
-                  <InsertLinkSharpIcon></InsertLinkSharpIcon>
-                </CustomizedTooltip>
-              </IconButton>
-              <IconButton>
-                <CustomizedTooltip placement="top" title="Attachments">
-                  <AttachFileSharpIcon></AttachFileSharpIcon>
-                </CustomizedTooltip>
-              </IconButton>
-              <IconButton>
-                <TextIcon />
-              </IconButton>
+              </IconButton>         
             </Box>
           </Box>
         </Box>
-      </Grid>
+      </Box>
     );
   }
 }

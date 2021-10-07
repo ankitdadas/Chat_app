@@ -19,6 +19,8 @@ import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  IconButton,
+  Toolbar,
 } from "@material-ui/core";
 import ComposeIconBlack from "../Common/ComposeIconBlack/ComposeIconBlack";
 import CustomizedTooltip from "../Common/ToolTip/CustomizedTooltip";
@@ -35,19 +37,17 @@ import List from "@material-ui/core/List";
 const message = `Truncation should be conditionally applicable on this long line of text
  as this is a much longer line than what the container can support. `;
 
+ 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    width: "70vw",
-    borderRadius: 15,
-  },
+   
+  
   paper: {
     padding: theme.spacing(1), //grid padding
     textAlign: "center",
     color: theme.palette.text.secondary,
-    marginBottom: 20,
+
     boxShadow: "none",
-    maxHeight: 325,
+    height: "calc(100vh - 315px)",
     overflow: "auto",
   },
   typography: {
@@ -57,15 +57,10 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 10,
     marginBottom: 20,
   },
-  Box: {
-    display: "flex",
-  },
-  ListItem: {
-    display: "flex",
-    justifyContent: "end",
-  },
+  
+  
 }));
-const drawerWidth = 450;
+
 function User() {
   //create class based upon class outside of export default.
   const classes = useStyles();
@@ -76,147 +71,117 @@ function User() {
   const [userDataDetail, setUserDataDetail] = React.useState(UserData.data[0]);
   const [open, setOpen] = React.useState(false);
 
-  const handleDrawerOpen = () => {
-    setOpen(true);
-  };
-
-  const handleDrawerClose = () => {
-    setOpen(false);
-  };
+ 
   return (
-    <Drawer
-      sx={{
-        width: drawerWidth,
-        flexShrink: 0,
-        "& .MuiDrawer-paper": {
-          width: drawerWidth,
-        },
-      }}
-      variant="persistent"
-      anchor="right"
-      open={true}
-    >
-      <Grid item lg={2} md={2}>
-        <Box spacing={2} className="user-block">
-          <Box className="composeIcon">
-            <ComposeIconBlack />
-          </Box>
+    <>
 
-          <Grid item conatiner>
-            <Grid item conatiner>
-              <Grid
-                onClick={() => {
-                  if (selectedIndx !== 0) {
-                    setThirdPartyDetail(
-                      ThirdParty.data[selectedIndx - 1].detail
-                    );
-                    setSelectedIndx(selectedIndx - 1);
-                    setUserDataDetail(UserData.data[selectedIndx - 1]);
-                  }
-                }}
-                className="arrowBackIcon"
-              >
-                <CustomizedTooltip placement="left" title="Previous">
-                  <ArrowBackIosIcon></ArrowBackIosIcon>
-                </CustomizedTooltip>
-              </Grid>
-
-              <Grid className="userIcon">
-                <Avatar src="https://material-ui.com/static/images/avatar/1.jpg"></Avatar>
-              </Grid>
-              <Grid class="arrowIcon">
-                <CustomizedTooltip placement="right" title="Next">
-                  <ArrowForwardIosIcon
-                    // disabled={selectedIndx === ThirdParty.data.length - 1}
-                    onClick={() => {
-                      if (selectedIndx !== ThirdParty.data.length - 1) {
+ 
+      <Box spacing={2} className="user-block" style={{ padding: "68px 0px 0px" }}>
+        <Grid conatiner>
+          <Grid item xs={12} style={{ textAlign: 'right', marginBottom1: 15 }}>
+            <IconButton style={{ position: 'relative', zIndex: 999 }}>
+              <ComposeIconBlack />
+            </IconButton>
+          </Grid>
+          <Box className="profileCard" style={{ position: 'relative' }}>
+            {userDataDetail && (
+              <Grid item xs={12}>
+                <Paper className="profileCardInner" borderRadius={10}>
+                  <Box className="userAvtarHolder">
+                    <IconButton onClick={() => {
+                      if (selectedIndx !== 0) {
                         setThirdPartyDetail(
-                          ThirdParty.data[selectedIndx + 1].detail
+                          ThirdParty.data[selectedIndx - 1].detail
                         );
-                        setUserDataDetail(UserData.data[selectedIndx + 1]);
-                        setSelectedIndx(selectedIndx + 1);
+                        setSelectedIndx(selectedIndx - 1);
+                        setUserDataDetail(UserData.data[selectedIndx - 1]);
                       }
                     }}
-                  ></ArrowForwardIosIcon>
-                </CustomizedTooltip>
-              </Grid>
-            </Grid>
+                      className="arrowIcon left">
+                      <CustomizedTooltip placement="left" title="Previous">
+                        <ArrowBackIosIcon></ArrowBackIosIcon>
+                      </CustomizedTooltip>
+                    </IconButton>
 
-            {userDataDetail && (
-              <Paper className="rectangle">
-                <Box wrap="wrap" container mt={4}>
-                  <Grid xs={11}>
-                    <Typography class={classes.typography}>
-                      {`${userDataDetail.contact.firstName} ${userDataDetail.contact.lastName}`}
-                    </Typography>
-                  </Grid>
-                  <Grid>
-                    <MailOutlineSharpIcon></MailOutlineSharpIcon>
-                  </Grid>
-                  <Grid>
-                    <Box className="rectangle-text">
-                      {" "}
-                      {`${userDataDetail.contact.email} `}
-                    </Box>
-                  </Grid>
-                </Box>
-                <Grid wrap="nowrap" container>
-                  <Grid>
-                    <PhoneOutlinedIcon></PhoneOutlinedIcon>
-                  </Grid>
-                  <Grid>
-                    <Box className="rectangle-text">{`${userDataDetail.contact.mobile.number} `}</Box>
-                  </Grid>
-                </Grid>
-              </Paper>
+                    <Avatar variant="circular" className="profileCardImage" alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+
+                    <IconButton class="arrowIcon right">
+                      <CustomizedTooltip placement="right" title="Next">
+                        <ArrowForwardIosIcon
+                          // disabled={selectedIndx === ThirdParty.data.length - 1}
+                          onClick={() => {
+                            if (selectedIndx !== ThirdParty.data.length - 1) {
+                              setThirdPartyDetail(
+                                ThirdParty.data[selectedIndx + 1].detail
+                              );
+                              setUserDataDetail(UserData.data[selectedIndx + 1]);
+                              setSelectedIndx(selectedIndx + 1);
+                            }
+                          }}
+                        ></ArrowForwardIosIcon>
+                      </CustomizedTooltip>
+                    </IconButton>
+                  </Box>
+                  <Box wrap="wrap" container >
+                    <Grid container>
+                      <Grid xs={12} item style={{ textAlign: "center" }}>
+                        <Typography class={classes.typography}>
+                          {`${userDataDetail.contact.firstName} ${userDataDetail.contact.lastName}`}
+                        </Typography>
+                      </Grid>
+
+                       
+                        <Box className="profileCardText" style={{ display: "flex", justifyContent: "flex-start", alignItems: "center" }} >
+                          <MailOutlineSharpIcon />
+                          {`${userDataDetail.contact.email} `}
+                        </Box>
+                      
+                      
+                        <Box  className="profileCardText" style={{ display: "flex", justifyContent: "flex-start", alignItems: "center",  }} >
+                          <PhoneOutlinedIcon />
+                          {`${userDataDetail.contact.mobile.number} `}
+                        </Box>
+                      
+                    </Grid>
+                   </Box>
+                </Paper>
+              </Grid>
             )}
-          </Grid>
-          <Paper class={classes.paper}>
+          </Box>
+        </Grid>
+        <Grid item xs={12} >
+          <Paper class={classes.paper} borderRadius={10}>
             {thirdPartyDetail &&
               thirdPartyDetail.length > 0 &&
               thirdPartyDetail.map((t) => {
                 console.log(t.logo);
                 return (
-                  <Accordion>
+                  <Accordion >
                     <AccordionSummary
                       aria-controls="panel1a-content"
                       id="panel1a-header"
+                      expandIcon={<ExpandMoreIcon />}
+                      style={{ alignItems: "center", display:"flex", justifyContent:"space-between", minHeight: "40px" }}
                     >
-                      <Grid xs={1}>
-                        <img
-                          height="30"
-                          width="30"
-                          alt={t.Integration}
-                          src={t.logo}
-                        />
-                      </Grid>
+                      <div  style={{ alignItems: "center", display:"flex", width:"100%" }}>
+                      <img width="30" alt={t.Integration} src={t.logo} style={{ marginRight: "15px" }} />
                       <Typography>{`${t.Integration}`}</Typography>
-                      <Box textAlign="right" class={classes.Box}>
-                        <CustomizedTooltip placement="top" title="Configure">
-                          <SettingsOutlinedIcon className="gearIcon"></SettingsOutlinedIcon>
-                        </CustomizedTooltip>
-                        <ExpandMoreIcon />
-                      </Box>
+                      </div>
+                      
+                      <SettingsOutlinedIcon style={{color:"#AAB2B8"}}/>
+                       
+
                     </AccordionSummary>
-                    <AccordionDetails>
+                    <AccordionDetails >
                       <Grid wrap="nowrap" spacing={0} container>
-                        <Grid xs={1}>
-                          <img
-                            height="30"
-                            width="30"
-                            alt={t.Integration}
-                            src={t.logo}
-                          />
+                        <Grid xs={1} style={{ minWidth: "40px" }}>
+
                         </Grid>
                         <Grid className="message-spacing">
-                          <Box className="rectangle-text">{t.gender}</Box>
-                          <Box className="rectangle-text italic-text">
-                            {t.age}
-                          </Box>
-                          <Box className="rectangle-text italic-text">
-                            {t.color}
-                          </Box>
-                          <Box className="rectangle-text">{t.country}</Box>
+                          <div>{t.gender}</div>
+                          <div>{t.age}</div>
+                          <div>{t.color}</div>
+                          <div>{t.country}</div>
                         </Grid>
                       </Grid>
                     </AccordionDetails>
@@ -224,9 +189,17 @@ function User() {
                 );
               })}
           </Paper>
-        </Box>
-      </Grid>
-    </Drawer>
+        </Grid>
+      </Box>
+  
+
+
+    
+
+    {/* ============= old drawer  ============== */ }
+ 
+
+    </>
   );
 }
 

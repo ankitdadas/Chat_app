@@ -11,12 +11,16 @@ import TemplatesPage from "./../src/Pages/Templates";
 
 import ToolsPage from "./../src/Pages/Tools";
 import LeftSidePanel from "./component/LeftSidePanel/LeftSidePanel";
+ 
+
 
 
 const Routing = () => {
   return (
     <>
-      <LeftSidePanel></LeftSidePanel>
+
+             
+        <LeftSidePanel/> 
       <Switch>
         <Route exact path="/" component={InboxPage} />
         <Route exact path="/Campaigns" component={CampaignsPage} />

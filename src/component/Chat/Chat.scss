@@ -20,8 +20,8 @@
 }
 
 .chat-grid {
-    // padding: 20px;
     position: relative;
+  flex-grow: 1;
 }
 
 .chat-msg {
@@ -162,6 +162,7 @@ text-align: center;
    position: absolute;
     bottom: 0;
     width: 100%;
+    background: #fff;
      
 }
 
@@ -183,19 +184,11 @@ text-align: right;
     overflow: auto;
     .chatSection{
         width: 100%;
+        
         .chatBox{
             width: 100%;
             max-width: 310px;
-            .messageInfoBox{
-                display: flex;
-                align-items: center;
-                    .messageInfoUser{
-                                display: flex;
-                                justify-content: space-between;
-                                align-items: center;
-                    }
-
-            }
+        
 
             .messageBoxBlue{
                 background-color: #0078CE;
@@ -219,6 +212,11 @@ text-align: right;
         .chatBox{
             margin-right: 0px;
             margin-left: auto;
+            .messageBoxBlue{
+                background-color: #f8f8f8;
+                color:#000;
+                
+            }
         }
     }
 }
