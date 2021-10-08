@@ -99,16 +99,14 @@ function User() {
                     }}
                       className="arrowIcon left">
                       <CustomizedTooltip placement="left" title="Previous">
-                        <ArrowBackIosIcon></ArrowBackIosIcon>
+                        <ArrowBackIosIcon /> 
                       </CustomizedTooltip>
                     </IconButton>
 
                     <Avatar variant="circular" className="profileCardImage" alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
 
-                    <IconButton class="arrowIcon right">
-                      <CustomizedTooltip placement="right" title="Next">
-                        <ArrowForwardIosIcon
-                          // disabled={selectedIndx === ThirdParty.data.length - 1}
+                    <IconButton class="arrowIcon right"  
+                    // disabled={selectedIndx === ThirdParty.data.length - 1}
                           onClick={() => {
                             if (selectedIndx !== ThirdParty.data.length - 1) {
                               setThirdPartyDetail(
@@ -117,8 +115,9 @@ function User() {
                               setUserDataDetail(UserData.data[selectedIndx + 1]);
                               setSelectedIndx(selectedIndx + 1);
                             }
-                          }}
-                        ></ArrowForwardIosIcon>
+                          }} >
+                      <CustomizedTooltip placement="right" title="Next">
+                        <ArrowForwardIosIcon/> 
                       </CustomizedTooltip>
                     </IconButton>
                   </Box>

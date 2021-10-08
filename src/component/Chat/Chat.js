@@ -31,22 +31,28 @@ import {
   TextareaAutosize,
   Toolbar
 } from "@material-ui/core";
-
-// import TextSnippetOutlinedIcon from '@material-ui/icons/TextSnippetOutlined';
-// import TextSnippetOutlinedIcon from '@material-ui/icons/TextSnippetOutlined';
 import CustomizedTooltip from "./../Common/ToolTip/CustomizedTooltip";
+// import TextSnippetOutlinedIcon from '@material-ui/icons/TextSnippetOutlined';
+// import TextSnippetOutlinedIcon from '@material-ui/icons/TextSnippetOutlined';
+import MobileChatNavButton from "./MobileChatNavButton";
+ 
+import BlockIcon from '@material-ui/icons/Block';
+
 
 class Chat extends Component {
   render() {
     return (
       <Box className="chat-grid">
         <AppBar color="default" elevation={0}  position="absolute">
-   <Toolbar style={{textAlign:"right", display:"flex", justifyContent:"flex-end"}}>
-     <IconButton>
-       <TextIcon/>
-     </IconButton>
-   </Toolbar>
-</AppBar>
+          <Toolbar style={{textAlign:"right", display:"flex", justifyContent:"flex-end"}}>
+            <IconButton>
+              <CheckIcon/>
+            </IconButton>
+            <IconButton>
+              <BlockIcon/>
+            </IconButton>
+          </Toolbar>
+        </AppBar>
         <Box
           className="chatBoxHolder"
           style={{ height: "calc(100vh - 160px)" }}
@@ -409,18 +415,20 @@ class Chat extends Component {
             style={{
               display: "flex",
               justifyContent: "space-around",
-              alignItems: "flex-end",
+              alignItems: "center",
               padding: "10px 10px 0px",
             }}
           >
 
 
-            <Box   style={{
-                            display: "flex",
-                            justifyContent: "space-around",
-                            alignItems: "flex-start",
-                          }}>
-                <IconButton>
+            <Box style={{
+                      display: "flex",
+                      justifyContent: "space-around",
+                      alignItems: "flex-start",
+                    }}>
+                
+
+                <IconButton >
                   <TokenIcon />
                 </IconButton>
                 <IconButton>
@@ -430,7 +438,7 @@ class Chat extends Component {
                 </IconButton>
                 <IconButton>
                   <CustomizedTooltip placement="top" title="Attachments">
-                    <AttachFileSharpIcon></AttachFileSharpIcon>
+                    <AttachFileSharpIcon />
                   </CustomizedTooltip>
                 </IconButton>
                 <IconButton>
@@ -442,17 +450,18 @@ class Chat extends Component {
                 display: "flex",
                 flexDirection: "column",
                 marginRight: 10,
+                position:"relative",
               }}
               sx={{ flexGrow: 1 }}
             >
               <TextareaAutosize
                 aria-label="minimum height"
-                minRows={1}
-                maxRows={3}
-                placeholder="Minimum 3 rows"
-                style={{ width: "100%", border:0, background:"#f1f1f1",  padding:"8px 15px", maxWidth:"95%" }}
+                minRows={2}
+                maxRows={4}
+                placeholder="Type a message..."
+                style={{ width: "100%", border:0, background:"#f1f1f1",  padding:"8px 15px 0px 10px", maxWidth:"95%", borderRadius:"5px" }}
               />
-              <Typography className="helper-text">
+              <Typography className="HelperTextChat">
                 3 segments (23 characters remaining)
               </Typography>
             </Box>

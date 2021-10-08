@@ -122,7 +122,7 @@ class Conversation extends Component {
 
         <Grid item xs={12}>
           <Paper elevation={0}
-            component="form" style={{ display: "flex", justifyContent: "flex-end", marginBottom: 10, marginTop: 10 }}
+            component="form" style={{ display: "flex", justifyContent: "flex-end", marginBottom: 10, marginTop: 1 }}
             sx={{ p: '2px 4px', display: 'flex', alignItems: 'center',  }}
           >
              

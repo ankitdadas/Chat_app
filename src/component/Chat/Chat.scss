@@ -22,6 +22,7 @@
 .chat-grid {
     position: relative;
   flex-grow: 1;
+  background: #fff;
 }
 
 .chat-msg {
@@ -163,22 +164,39 @@ text-align: center;
     bottom: 0;
     width: 100%;
     background: #fff;
+
+    .MuiButtonBase-root{
+        div{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .svg{
+        fill:#000000;
+    }
      
 }
 
 
-.helper-text {
+.HelperTextChat{
 font-family: Work Sans !important;
 font-size: 12px !important;
 text-align: right;
+position: absolute;
+bottom: 5px;
+right: 25px;
+background: #f1f1f1;
 }
 
 .chatBoxHolder{
+
     align-items: flex-end;
     display: block;
     flex-direction: column;
     padding: 10px 15px 0px;
-    
+    background: #fff;    
     justify-content: flex-end;
     padding-bottom: 70px;
     overflow: auto;
@@ -219,4 +237,6 @@ text-align: right;
             }
         }
     }
+
+    
 }
