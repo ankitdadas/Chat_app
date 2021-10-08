@@ -125,9 +125,7 @@ class Conversation extends Component {
             component="form" style={{ display: "flex", justifyContent: "flex-end", marginBottom: 10, marginTop: 10 }}
             sx={{ p: '2px 4px', display: 'flex', alignItems: 'center',  }}
           >
-            <IconButton type="submit" sx={{ p: '10px' }} aria-label="search">
-              <SearchIcon />
-            </IconButton>
+             
             <Searchbox sx={{ ml: 1, flex: 1 }} setUsers={this.setUsers}></Searchbox>
             <IconButton color="primary" sx={{ p: '10px' }} aria-label="directions">
               <CustomizedTooltip title="Filter" placement="left">

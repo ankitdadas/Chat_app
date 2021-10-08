@@ -11,6 +11,7 @@ export default function Searchbox({ setUsers }) {
   const [serachBoxArr, setSearchBoxArr] = React.useState([]);
   return (
     <Autocomplete
+    style={{flexGrow:"1"}}
       id="free-solo-demo"
       freeSolo
       filterOptions={(x) => x}
@@ -37,7 +38,7 @@ export default function Searchbox({ setUsers }) {
           setSearchBoxArr([]);
         }
       }}
-      renderInput={(params) => <TextField {...params}   variant="outlined"  style={{minWidth:"220px", borderColor:"#fff", outline:"none", marginLeft:"5px", marginRight:"5px"}} label="Search" />}
+      renderInput={(params) => <TextField {...params}   variant="outlined"  style={{minWidth:"100%", flexGrow:"1", borderColor:"#fff", outline:"none", marginLeft:"5px", marginRight:"5px"}} label="Search" />}
     />
   );
 }
